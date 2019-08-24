@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Mono:size=10:antialias=true:autohint=true";
+static char *font = "Monospace:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/bash";
+static char *shell = "/bin/sh";
 char *utmp = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
@@ -32,7 +32,7 @@ static float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-char *worddelimiters = " ";
+wchar_t *worddelimiters = L" ";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
@@ -82,30 +82,38 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/*
+* base16-tomorrow-theme.h
+*
+* Base16: (https://github.com/chriskempson/base16)
+*
+* Authors:
+*
+* Scheme: Chris Kempson (http://chriskempson.com)
+* Template: Honza Pokorny <me@honza.ca>
+*
+*/
+
+
 static const char *colorname[] = {
-     "#fdf6e3", /* base00 */
-     "#dc322f", /* base08 */
-     "#859900", /* base0B */
-     "#b58900", /* base0A */
-     "#268bd2", /* base0D */
-     "#6c71c4", /* base0E */
-     "#2aa198", /* base0C */
-     "#586e75", /* base05 */
-     "#839496", /* base03 */
-     "#cb4b16", /* base09 */
-     "#eee8d5", /* base01 */
-     "#93a1a1", /* base02 */
-     "#657b83", /* base04 */
-     "#073642", /* base06 */
-     "#d33682", /* base0F */
-     "#002b36", /* base07 */
+  "#ffffff", /* base00 */
+  "#c82829", /* base08 */
+  "#718c00", /* base0B */
+  "#eab700", /* base0A */
+  "#4271ae", /* base0D */
+  "#8959a8", /* base0E */
+  "#3e999f", /* base0C */
+  "#4d4d4c", /* base05 */
+  "#8e908c", /* base03 */
+  "#f5871f", /* base09 */
+  "#e0e0e0", /* base01 */
+  "#d6d6d6", /* base02 */
+  "#969896", /* base04 */
+  "#282a2e", /* base06 */
+  "#a3685a", /* base0F */
+  "#1d1f21", /* base07 */
 };
 
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
 unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
 static unsigned int defaultcs = 13;
@@ -169,8 +177,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ MODKEY,		XK_k,		kscrollup,      {.i = 1} },
-	{ MODKEY,		XK_j,		kscrolldown,    {.i = 1} },
+	/* { MODKEY,		XK_k,		kscrollup,      {.i = 1} }, */
+	/* { MODKEY,		XK_j,		kscrolldown,    {.i = 1} }, */
 };
 
 /*
